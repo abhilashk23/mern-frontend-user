@@ -5,6 +5,7 @@ import RegisterForm from './components/RegistrationForm/RegistrationForm';
 import LoginForm from './components/LoginForm/LoginForm';
 import Home from './components/Home/Home';
 import './App.css';
+import HomePage from './components/HomePage/HomePage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,9 +30,16 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Router>
+    <Router>
+      <div>
         <Route path="/" exact>
+          <HomePage />
+          <LoginForm onLogin={handleLogin} />
+        </Route>
+        <Route path="/register" exact>
+          <RegisterForm />
+        </Route>
+        <Route path="/login" exact>
           {user ? (
             <Redirect to="/home" />
           ) : (
@@ -42,11 +50,11 @@ function App() {
           {user ? (
             <Home user={user} /> // Render the component for the home page
           ) : (
-            <Redirect to="/" />
+            <Redirect to="/login" />
           )}
         </Route>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 

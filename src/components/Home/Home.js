@@ -7,7 +7,7 @@ function Home({ user }) {
 
     const handleLogout = () => {
         localStorage.removeItem('token'); // Clear the token from local storage
-        history.push('/');
+        history.push('/login');
         window.location.reload();
     };
     return (

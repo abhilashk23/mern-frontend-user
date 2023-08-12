@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const RegisterForm = () => {
+  const history = useHistory();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +20,10 @@ const RegisterForm = () => {
 
     try {
       await axios.post('http://localhost:5000/users/register', formData);
-      alert('User registered successfully!');
+      alert('User registered successfully! Click Ok to go to Login');
+      history.push('/login');
+      window.location.reload();
+
     } catch (error) {
       console.log(error);
       alert('Error registering user.');
@@ -32,6 +37,8 @@ const RegisterForm = () => {
       <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       <input type="file" accept="image/*" onChange={(e) => setProfileImage(e.target.files[0])} />
       <button type="submit">Register</button>
+
+      <p>Already Registered? <a href="/login">Login</a></p>
     </form>
   );
 };

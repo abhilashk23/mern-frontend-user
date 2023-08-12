@@ -36,6 +36,7 @@ const LoginForm = ({ onLogin }) => {
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <button type="submit">Login</button>
             </form>
+            <p>New Here? Click here to <a href='/register'>Register</a></p>
         </div>
     );
 };
