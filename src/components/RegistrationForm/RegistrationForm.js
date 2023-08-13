@@ -67,7 +67,7 @@ const RegisterForm = () => {
             <button type="submit" disabled={!name ||!username || !email || !password || !profileImage} className='w-4/5 bg-fuchsia-600 disabled:bg-neutral-300 text-white disabled:text-neutral-500 p-2.5 rounded-full font-medium text-xl'>Sign Up</button>
           </form>
 
-          <p className='text-md mt-5'>Already have an account <a href="/login" className='text-fuchsia-700 underline decoration-fuchsia-700'>Register</a></p>
+          <p className='text-md mt-5'>Already have an account <a href="/login" className='text-fuchsia-700 underline decoration-fuchsia-700'>Login</a></p>
         </div>
       </div>
       <div className='w-1/3 flex items-center justify-center h-screen bg-fuchsia-400'>

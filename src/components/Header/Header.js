@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 
 function Header() {
     return (
-        <div className='p-5 flex flex-row justify-between'>
+        <div className='border-2 border-black rounded-full bg-white p-5 flex flex-row justify-between'>
             <div>
                 <p className='p-1 text-2xl font-bold'>LOGO</p>
             </div>

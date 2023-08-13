@@ -4,8 +4,8 @@ import HomePage from '../components/HomePage/HomePage';
 
 function Home() {
   return (
-    <div>
-        <Header />
+    <div className='h-full'>
+        {/* <Header /> */}
         <HomePage />
     </div>
   )
