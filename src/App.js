@@ -40,12 +40,12 @@ function App() {
         </Route>
         <Route path="/login" exact>
           {user ? (
-            <Redirect to="/home" />
+            <Redirect to={`/home/${user.username}`} />
           ) : (
             <LoginForm onLogin={handleLogin} />
           )}
         </Route>
-        <Route path="/home" exact>
+        <Route path="/home/:username" exact>
           {user ? (
             <Home user={user} /> // Render the component for the home page
           ) : (

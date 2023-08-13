@@ -23,7 +23,7 @@ const LoginForm = ({ onLogin }) => {
             localStorage.setItem('token', token);
 
             onLogin();
-            history.push('/home');
+            history.push(`/home/${username}`);
             window.location.reload();
         } catch (error) {
             setError('Invalid Credentials!');
@@ -37,7 +37,7 @@ const LoginForm = ({ onLogin }) => {
             </div>
             <div className='w-2/3 flex flex-col p-5'>
                 <div className='grid justify-items-end'>
-                    <p className='p-1 text-2xl font-bold'>LOGO</p>
+                    <a href="/"><p className='p-1 text-2xl font-bold'>LOGO</p></a>
                 </div>
                 <br />
                 <br />
