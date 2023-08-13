@@ -5,7 +5,7 @@ import RegisterForm from './components/RegistrationForm/RegistrationForm';
 import LoginForm from './components/LoginForm/LoginForm';
 import Home from './components/Home/Home';
 import './App.css';
-import HomePage from './components/HomePage/HomePage';
+import HomePage from './pages/Home';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -34,7 +34,6 @@ function App() {
       <div>
         <Route path="/" exact>
           <HomePage />
-          <LoginForm onLogin={handleLogin} />
         </Route>
         <Route path="/register" exact>
           <RegisterForm />

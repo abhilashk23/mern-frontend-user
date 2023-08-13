@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 const RegisterForm = () => {
   const history = useHistory();
   const [name, setName] = useState('');
+  const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [profileImage, setProfileImage] = useState(null);
@@ -14,6 +15,7 @@ const RegisterForm = () => {
 
     const formData = new FormData();
     formData.append('name', name);
+    formData.append('username', username);
     formData.append('email', email);
     formData.append('password', password);
     formData.append('profileImage', profileImage);
@@ -33,6 +35,7 @@ const RegisterForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
+      <input type="text" placeholder="Username" value={username} onChange={(e) => setUserName(e.target.value)} required />
       <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       <input type="file" accept="image/*" onChange={(e) => setProfileImage(e.target.files[0])} />
