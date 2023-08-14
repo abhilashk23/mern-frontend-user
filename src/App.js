@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import RegisterForm from './components/RegistrationForm/RegistrationForm';
 import LoginForm from './components/LoginForm/LoginForm';
-import Home from './components/Home/Home';
+import User from './pages/User';
 import './App.css';
 import HomePage from './pages/Home';
+import UpdatePF from './components/UpdatePF/UpdatePF';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -47,10 +48,13 @@ function App() {
         </Route>
         <Route path="/home/:username" exact>
           {user ? (
-            <Home user={user} /> // Render the component for the home page
+            <User user={user} /> // Render the component for the home page
           ) : (
             <Redirect to="/login" />
           )}
+        </Route>
+        <Route path="/update" exact>
+          <UpdatePF />
         </Route>
       </div>
     </Router>
