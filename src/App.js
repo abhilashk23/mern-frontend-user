@@ -7,6 +7,8 @@ import User from './pages/User';
 import './App.css';
 import HomePage from './pages/Home';
 import UpdatePF from './components/UpdatePF/UpdatePF';
+import LinkUpdate from './components/LinkUpdate/LinkUpdate';
+import BgUpdate from './components/BgUpdate/BgUpdate';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -55,6 +57,12 @@ function App() {
         </Route>
         <Route path="/update" exact>
           <UpdatePF />
+        </Route>
+        <Route path="/addlinks" exact>
+          <LinkUpdate />
+        </Route>
+        <Route path="/addbg" exact>
+          <BgUpdate />
         </Route>
       </div>
     </Router>

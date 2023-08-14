@@ -2,43 +2,41 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
-
-function UpdatePF() {
+function BgUpdate() {
     const history = useHistory();
-    const [profileImage, setProfileImage] = useState(null);
+    const [bgImage, setBgImage] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         const formData = new FormData();
-        formData.append('profileImage', profileImage);
+        formData.append('bgImage', bgImage);
         formData.append('token', token);
 
         try {
-            await axios.post('http://localhost:5000/users/updateProfile', formData)
+            await axios.post('http://localhost:5000/users/updateBg', formData)
                 .then((response) => {
-                    alert("Profile photo updated successfully");
+                    console.log(response.data);
                 })
-                .catch((e) => {
-                    alert("Profile photo not updated");
+                .catch(e =>{
+                    console.log(e);
                 });
-                history.push("/home/:username");
-                window.location.reload();
+            history.push("/home/:username");
+            window.location.reload();
         }
         catch (error) {
             console.log(error);
         }
 
     }
-
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="file" accept="image/*" onChange={(e) => setProfileImage(e.target.files[0])} />
+                <input type="file" accept="image/*" onChange={(e) => setBgImage(e.target.files[0])} />
                 <button type='submit'>Submit</button>
             </form>
         </div>
     )
 }
 
-export default UpdatePF
+export default BgUpdate
