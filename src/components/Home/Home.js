@@ -40,7 +40,7 @@ function Home({ user }) {
             <br />
             <div className='home mb-5'>
                 <div className='w-2/5 rounded-lg bg-white p-5 flex flex-col justify-items-center items-center'>
-                    {user.profileImage ? (<img src={`http://localhost:5000/uploads/${user.profileImage}`} className='rounded-full w-32 h-32' alt="Profile" />) : (<p>NULL</p>)}
+                    {user.profileImage ? (<img src={`http://localhost:5000/uploads/${user.profileImage}`} className='rounded-full w-32 h-32' alt="Profile" />) : (<p>{user.name}</p>)}
                     <h1 className='pt-2 font-bold text-lg'>{user.name}</h1>
                     <p className='font-semibold text-md' style={{ color: user.bgImage ? 'black' : backgroundColor }}>{user.username}</p>
                     <div className='flex flex-row gap-x-4'>
