@@ -9,6 +9,7 @@ import HomePage from './pages/Home';
 import UpdatePF from './components/UpdatePF/UpdatePF';
 import LinkUpdate from './components/LinkUpdate/LinkUpdate';
 import BgUpdate from './components/BgUpdate/BgUpdate';
+import DelLink from './components/DelLink/DelLink';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -63,6 +64,9 @@ function App() {
         </Route>
         <Route path="/addbg" exact>
           <BgUpdate />
+        </Route>
+        <Route path="/dellink" exact>
+          <DelLink user={user} />
         </Route>
       </div>
     </Router>
