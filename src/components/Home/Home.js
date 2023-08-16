@@ -56,22 +56,22 @@ function Home({ user }) {
                     <div className='my-2 flex flex-row gap-x-3'>
                         {mainLinks.map((link, index) => {
                             if (link.title.toLowerCase() === 'instagram') {
-                                return <a href={link.url} target='_blank' ><InstagramIcon fontSize='medium' /></a>
+                                return <a href={link.url} target='_blank' ><InstagramIcon fontSize='medium' sx={{color: backgroundColor}} /></a>
                             }
                             if (link.title.toLowerCase() === 'github') {
-                                return <a href={link.url} target='_blank' ><GitHubIcon fontSize='medium' /></a>
+                                return <a href={link.url} target='_blank' ><GitHubIcon fontSize='medium' sx={{color: backgroundColor}} /></a>
                             }
                             if (link.title.toLowerCase() === 'linkedin') {
-                                return <a href={link.url} target='_blank' ><LinkedInIcon fontSize='medium' /></a>
+                                return <a href={link.url} target='_blank' ><LinkedInIcon fontSize='medium' sx={{color: backgroundColor}} /></a>
                             }
                             if (link.title.toLowerCase() === 'facebook') {
-                                return <a href={link.url} target='_blank' ><FacebookIcon fontSize='medium' /></a>
+                                return <a href={link.url} target='_blank' ><FacebookIcon fontSize='medium' sx={{color: backgroundColor}} /></a>
                             }
                             if (link.title.toLowerCase() === 'twitter') {
-                                return <a href={link.url} target='_blank' ><TwitterIcon fontSize='medium' /></a>
+                                return <a href={link.url} target='_blank' ><TwitterIcon fontSize='medium' sx={{color: backgroundColor}} /></a>
                             }
                             if (link.title.toLowerCase() === 'youtube') {
-                                return <a href={link.url} target='_blank' ><YouTubeIcon fontSize='medium' /></a>
+                                return <a href={link.url} target='_blank' ><YouTubeIcon fontSize='medium' sx={{color: backgroundColor}} /></a>
                             }
                         })}
                     </div>

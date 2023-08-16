@@ -10,6 +10,7 @@ import UpdatePF from './components/UpdatePF/UpdatePF';
 import LinkUpdate from './components/LinkUpdate/LinkUpdate';
 import BgUpdate from './components/BgUpdate/BgUpdate';
 import DelLink from './components/DelLink/DelLink';
+import SearchUser from './components/SearchUser/SearchUser';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -67,6 +68,9 @@ function App() {
         </Route>
         <Route path="/dellink" exact>
           <DelLink user={user} />
+        </Route>
+        <Route path="/searchuser" exact>
+          <SearchUser />
         </Route>
       </div>
     </Router>

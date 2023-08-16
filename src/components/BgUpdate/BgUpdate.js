@@ -32,7 +32,7 @@ function BgUpdate() {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="file" accept="image/*" onChange={(e) => setBgImage(e.target.files[0])} />
+                <input type="file" accept="image/*" onChange={(e) => setBgImage(e.target.files[0])} required />
                 <button type='submit'>Submit</button>
             </form>
         </div>
