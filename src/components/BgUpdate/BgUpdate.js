@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
+
 function BgUpdate() {
     const history = useHistory();
     const [bgImage, setBgImage] = useState(null);
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -18,7 +20,7 @@ function BgUpdate() {
                 .then((response) => {
                     console.log(response.data);
                 })
-                .catch(e =>{
+                .catch(e => {
                     console.log(e);
                 });
             history.push("/home/:username");
@@ -29,14 +31,44 @@ function BgUpdate() {
         }
 
     }
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setSelectedFile(file);
+        setBgImage(file);
+    };
+
     return (
-        <div>
+        <div className='flex flex-col justify-center items-center'>
             <form onSubmit={handleSubmit}>
-                <input type="file" accept="image/*" onChange={(e) => setBgImage(e.target.files[0])} required />
-                <button type='submit'>Submit</button>
+                <label className="block text-lg font-medium text-gray-700">
+                    Select a file:
+                    <input
+                        className="my-3 block" type="file" accept="image/*"
+                        onChange={handleFileChange}
+                    />
+                </label>
+                {selectedFile && (
+                    <div className="my-4">
+                        <p className="text-gray-600">
+                            Selected file: {selectedFile.name}
+                        </p>
+                        <img
+                            src={URL.createObjectURL(selectedFile)}
+                            alt="Selected File Preview"
+                            className="mt-2 max-w-xs"
+                        />
+                    </div>
+                )}
+                <button type='submit' className=' bg-fuchsia-600 disabled:bg-neutral-300 text-white p-3 rounded-full font-medium text-md'>Update Background image</button>
             </form>
         </div>
     )
 }
+
+{/*
+<input className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 appearance-none text-center" type="file" accept="image/*" onChange={(e) => setBgImage(e.target.files[0])} required />
+                <button type='submit'>Submit</button>
+ */}
 
 export default BgUpdate
