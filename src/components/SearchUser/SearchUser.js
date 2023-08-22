@@ -56,7 +56,7 @@ function SearchUser() {
                 <div>
                     {result.profileImage ? (<img src={`http://localhost:5000/uploads/${result.profileImage}`} className='rounded-full w-32 h-32' alt="Profile" />) : (<AccountCircleIcon sx={{ fontSize: 50 }} />)}
                     <h1 className='pt-2 font-bold text-lg'>{result.name}</h1>
-                    <p className='font-semibold text-md' style={{ color: 'black' }}>{result.username}</p>
+                    <p className='font-semibold text-md' style={{ color: 'black' }}>@{result.username}</p>
                     <div className='my-2 flex flex-row gap-x-3'>
                         {mainLinks.map((link, index) => {
                             if (link.title.toLowerCase() === 'instagram') {
