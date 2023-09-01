@@ -15,6 +15,7 @@ import Modal from '@mui/material/Modal';
 import { Box } from '@mui/material';
 import BgUpdate from '../BgUpdate/BgUpdate';
 import UpdatePF from '../UpdatePF/UpdatePF';
+import PasswordUpdate from '../PasswordUpdate/PasswordUpdate';
 
 
 const style = {
@@ -22,7 +23,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 'inherit',
+    width: '50%',
     bgcolor: 'background.paper',
     borderRadius: 5,
     boxShadow: 24,
@@ -42,6 +43,10 @@ function Header2({ user }) {
     const [profileOpen, setProfileOpen] = useState(false);
     const handleProfileOpen = () => setProfileOpen(true);
     const handleProfileClose = () => setProfileOpen(false);
+
+    const [passOpen, setPassOpen] = useState(false);
+    const handlePassOpen = () => setPassOpen(true);
+    const handlePassClose = () => setPassOpen(false);
     
 
     const handleLogout = () => {
@@ -100,6 +105,7 @@ function Header2({ user }) {
                 <a onClick={handleBgOpen} title="Update Background Image"><WallpaperIcon /></a>
                 <a href="" onClick={handleBgRemove} title="Remove Background Image"><CancelPresentationIcon /></a>
                 <a href="/login" onClick={handleLogout} title="Logout"><LogoutIcon /></a>
+                <a onClick={handlePassOpen} sx={{cursor: "pointer"}}>Password</a>
             </div>
 
             {/* Bg update input */}
@@ -135,7 +141,26 @@ function Header2({ user }) {
                     </div>
                 </Box>
             </Modal>
+
+            {/* Password update input */}
+            <Modal
+                open={passOpen}
+                onClose={handlePassClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <div className='w-full flex flex-row justify-end mb-5'>
+                        <CloseIcon onClick={handlePassClose} sx={{ cursor: 'pointer' }} />
+                    </div>
+                    <div className='p-2 w-full'>
+                        <PasswordUpdate />
+                    </div>
+                </Box>
+            </Modal>
+
         </div>
+
     )
 }
 

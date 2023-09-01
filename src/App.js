@@ -11,6 +11,7 @@ import LinkUpdate from './components/LinkUpdate/LinkUpdate';
 import BgUpdate from './components/BgUpdate/BgUpdate';
 import DelLink from './components/DelLink/DelLink';
 import SearchUser from './components/SearchUser/SearchUser';
+import PasswordUpdate from './components/PasswordUpdate/PasswordUpdate';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -71,6 +72,9 @@ function App() {
         </Route>
         <Route path="/searchuser" exact>
           <SearchUser />
+        </Route>
+        <Route path="/passwordupdate" exact>
+          <PasswordUpdate />
         </Route>
       </div>
     </Router>
