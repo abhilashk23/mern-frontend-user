@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      axios.post('http://localhost:5000/users/verifyToken', { token })
+      axios.post('https://user-login-api.onrender.com/users/verifyToken', { token })
         .then(response => {
           setUser(response.data);
           setProfileImage(response.data.profileImage);

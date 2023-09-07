@@ -16,7 +16,7 @@ function BgUpdate() {
         formData.append('token', token);
 
         try {
-            await axios.post('http://localhost:5000/users/updateBg', formData)
+            await axios.post('https://user-login-api.onrender.com/users/updateBg', formData)
                 .then((response) => {
                     console.log(response.data);
                 })

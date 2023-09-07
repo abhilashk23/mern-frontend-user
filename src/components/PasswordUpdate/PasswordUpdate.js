@@ -10,7 +10,7 @@ function PasswordUpdate() {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:5000/users/passwordUpdate', { token, oldPass: oldPass, newPass: newPass, confNewPass: confPass })
+            await axios.post('https://user-login-api.onrender.com/users/passwordUpdate', { token, oldPass: oldPass, newPass: newPass, confNewPass: confPass })
             .then((response) => {
                 alert(response.data.message);
             })
