@@ -65,7 +65,7 @@ function Home({ user }) {
     return (
         <div className='flex flex-col' style={{
             backgroundColor: user.bgImage ? 'transparent' : backgroundColor,
-            backgroundImage: user.bgImage ? `url(https://user-login-api.onrender.com/uploads/${user.bgImage})` : 'none',
+            backgroundImage: user.bgImage ? `url(${user.bgImage})` : 'none',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -78,7 +78,7 @@ function Home({ user }) {
             <br />
             <div className='home mb-5'>
                 <div className='w-2/5 rounded-lg bg-white p-5 flex flex-col justify-items-center items-center'>
-                    {user.profileImage ? (<img src={`https://user-login-api.onrender.com/uploads/${user.profileImage}`} className='rounded-full w-32 h-32' alt="Profile" />) : (<AccountCircleIcon sx={{ fontSize: 50 }} />)}
+                    {user.profileImage ? (<img src={`${user.profileImage}`} className='rounded-full w-32 h-32' alt="Profile" />) : (<AccountCircleIcon sx={{ fontSize: 50 }} />)}
                     <h1 className='pt-2 font-bold text-lg'>{user.name}</h1>
                     <p className='font-semibold text-md' style={{ color: user.bgImage ? 'black' : backgroundColor }}>@{user.username}</p>
                     <div className='my-2 flex flex-row gap-x-3'>

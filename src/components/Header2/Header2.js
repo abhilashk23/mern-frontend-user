@@ -94,7 +94,7 @@ function Header2({ user }) {
     return (
         <div className='w-1/2 border-2 border-black rounded-full bg-white p-5 flex flex-row justify-between justify-items-center items-center'>
             <div className='flex flex-row justify-center items-center'>
-                <a onClick={handleProfileOpen} title="Update profile image"><p className='p-1 text-2xl font-bold'>{user.profileImage ? (<img src={`https://user-login-api.onrender.com/uploads/${user.profileImage}`} className='rounded-full w-10 h-10' alt="Profile" />) : (<AccountCircleIcon fontSize='large' />)}</p></a>
+                <a onClick={handleProfileOpen} title="Update profile image"><p className='p-1 text-2xl font-bold'>{user.profileImage ? (<img src={`${user.profileImage}`} className='rounded-full w-10 h-10' alt="Profile" />) : (<AccountCircleIcon fontSize='large' />)}</p></a>
             </div>
             <div className='flex flex-row justify-center items-center'>
                 <a href='/searchuser' title="Search user"><SearchIcon /> Search</a>
