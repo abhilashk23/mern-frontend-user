@@ -54,7 +54,7 @@ function SearchUser() {
             <a href="/home/:username"><HomeIcon /> Return home</a>
             {result !== null ? (
                 <div>
-                    {result.profileImage ? (<img src={`https://user-login-api.onrender.com/uploads/${result.profileImage}`} className='rounded-full w-32 h-32' alt="Profile" />) : (<AccountCircleIcon sx={{ fontSize: 50 }} />)}
+                    {result.profileImage ? (<img src={`${result.profileImage}`} className='rounded-full w-32 h-32' alt="Profile" />) : (<AccountCircleIcon sx={{ fontSize: 50 }} />)}
                     <h1 className='pt-2 font-bold text-lg'>{result.name}</h1>
                     <p className='font-semibold text-md' style={{ color: 'black' }}>@{result.username}</p>
                     <div className='my-2 flex flex-row gap-x-3'>
