@@ -12,28 +12,31 @@ import BgUpdate from './components/BgUpdate/BgUpdate';
 import DelLink from './components/DelLink/DelLink';
 import SearchUser from './components/SearchUser/SearchUser';
 import PasswordUpdate from './components/PasswordUpdate/PasswordUpdate';
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [profileImage, setProfileImage] = useState('');
+  // const [profileImage, setProfileImage] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       axios.post('https://user-login-api.onrender.com/users/verifyToken', { token })
-        .then(response => {
-          setUser(response.data);
-          setProfileImage(response.data.profileImage);
-        })
+        .then((response) => response.data)
+        .then(data => setTimeout(() => {
+          setUser(data);
+          // setProfileImage(data.profileImage);
+        }), 1000)
         .catch(error => {
           console.error('Token verification failed:', error);
         });
     }
   }, []);
 
-  const handleLogin = () => {
-    setUser(user);
-  };
+  // const handleLogin = () => {
+  //   setUser(user);
+  // };
 
   return (
     <Router>
@@ -48,14 +51,33 @@ function App() {
           {user ? (
             <Redirect to={`/home/${user.username}`} />
           ) : (
-            <LoginForm onLogin={handleLogin} />
+            <LoginForm  />
           )}
         </Route>
         <Route path="/home/:username" exact>
           {user ? (
             <User user={user} /> // Render the component for the home page
           ) : (
-            <Redirect to="/login" />
+            <div className='mt-5 flex flex-row gap-x-5 items-center justify-items-center'>
+              <Stack spacing={1}>
+                <div className='flex flex-row justify-items-center items-center gap-x-5'>
+                  <Skeleton variant="circular" width={100} height={100} />
+                  <div className='flex flex-col'>
+                    <Skeleton variant="text" sx={{ fontSize: '1rem' }} width={210} />
+                    <Skeleton variant="text" sx={{ fontSize: '1rem' }} width={210} />
+                    <div className='my-2 flex flex-row gap-x-3'>
+                      <Skeleton variant="rounded" width={30} height={30} />
+                      <Skeleton variant="rounded" width={30} height={30} />
+                      <Skeleton variant="rounded" width={30} height={30} />
+                      <Skeleton variant="rounded" width={30} height={30} />
+                      <Skeleton variant="rounded" width={30} height={30} />
+                    </div>
+                  </div>
+                </div>
+                <Skeleton variant="rounded" width={500} height={30} />
+                <Skeleton variant="rounded" width={500} height={30} />
+              </Stack>
+            </div>
           )}
         </Route>
         <Route path="/update" exact>

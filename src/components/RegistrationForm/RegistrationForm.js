@@ -64,7 +64,7 @@ const RegisterForm = () => {
 
             <input type="file" accept="image/*" onChange={(e) => setProfileImage(e.target.files[0])} />
 
-            <button type="submit" disabled={!name ||!username || !email || !password || !profileImage} className='w-4/5 bg-fuchsia-600 disabled:bg-neutral-300 text-white disabled:text-neutral-500 p-2.5 rounded-full font-medium text-xl'>Sign Up</button>
+            <button type="submit" disabled={!name ||!username || !email || !password } className='w-4/5 bg-fuchsia-600 disabled:bg-neutral-300 text-white disabled:text-neutral-500 p-2.5 rounded-full font-medium text-xl'>Sign Up</button>
           </form>
 
           <p className='text-md mt-5'>Already have an account <a href="/login" className='text-fuchsia-700 underline decoration-fuchsia-700'>Login</a></p>

@@ -16,6 +16,7 @@ import { Box } from '@mui/material';
 import BgUpdate from '../BgUpdate/BgUpdate';
 import UpdatePF from '../UpdatePF/UpdatePF';
 import PasswordUpdate from '../PasswordUpdate/PasswordUpdate';
+import SearchUser from '../SearchUser/SearchUser';
 
 
 const style = {
@@ -47,12 +48,15 @@ function Header2({ user }) {
     const [passOpen, setPassOpen] = useState(false);
     const handlePassOpen = () => setPassOpen(true);
     const handlePassClose = () => setPassOpen(false);
+
+    const [openSearch, setOpenSearch] = React.useState(false);
+    const handleSearchOpen = () => setOpenSearch(true);
+    const handleSearchClose = () => setOpenSearch(false);
     
 
     const handleLogout = () => {
         localStorage.removeItem('token'); // Clear the token from local storage
         history.push('/login');
-        window.location.reload();
     };
 
     const handleBgRemove = async (e) => {
@@ -97,7 +101,7 @@ function Header2({ user }) {
                 <a onClick={handleProfileOpen} title="Update profile image"><p className='p-1 text-2xl font-bold'>{user.profileImage ? (<img src={`${user.profileImage}`} className='rounded-full w-10 h-10' alt="Profile" />) : (<AccountCircleIcon fontSize='large' />)}</p></a>
             </div>
             <div className='flex flex-row justify-center items-center'>
-                <a href='/searchuser' title="Search user"><SearchIcon /> Search</a>
+                <a onClick={handleSearchOpen} title="Search user"><SearchIcon /> Search</a>
             </div>
             <div className='flex flex-row justify-between items-center gap-x-5'>
                 <a href="" title="Edit Profile"><ManageAccountsIcon /></a>
@@ -155,6 +159,23 @@ function Header2({ user }) {
                     </div>
                     <div className='p-2 w-full'>
                         <PasswordUpdate />
+                    </div>
+                </Box>
+            </Modal>
+
+            {/* Search user Modal */}
+            <Modal
+                open={openSearch}
+                onClose={handleSearchClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <div className='w-full flex flex-row justify-end mb-5'>
+                        <CloseIcon onClick={handleSearchClose} sx={{ cursor: 'pointer' }} />
+                    </div>
+                    <div className='p-2 w-full'>
+                        <SearchUser />
                     </div>
                 </Box>
             </Modal>
