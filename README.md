@@ -15,4 +15,4 @@ Url - https://linkpalace.vercel.app/
 - Update/Upload background and profile images
 - Search other users using their username
 
-### NOTE: This website is still under development and is not made responsive for mobile and tablet devices.
+### NOTE: This website is still under development and has not been optimized for mobile and tablet devices for responsive design.
