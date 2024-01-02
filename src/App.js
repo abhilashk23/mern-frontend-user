@@ -92,9 +92,6 @@ function App() {
         <Route path="/dellink" exact>
           <DelLink user={user} />
         </Route>
-        <Route path="/searchuser" exact>
-          <SearchUser />
-        </Route>
         <Route path="/passwordupdate" exact>
           <PasswordUpdate />
         </Route>
