@@ -9,7 +9,7 @@ import PersonRemoveAlt1Icon from '@mui/icons-material/PersonRemoveAlt1';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import SearchIcon from '@mui/icons-material/Search';
 import axios from 'axios';
-import { SearchRounded } from '@mui/icons-material';
+import { Close, SearchRounded } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
 import Modal from '@mui/material/Modal';
 import { Box } from '@mui/material';
@@ -17,6 +17,10 @@ import BgUpdate from '../BgUpdate/BgUpdate';
 import UpdatePF from '../UpdatePF/UpdatePF';
 import PasswordUpdate from '../PasswordUpdate/PasswordUpdate';
 import SearchUser from '../SearchUser/SearchUser';
+import Drawer from '@mui/material/Drawer';
+import SettingsIcon from '@mui/icons-material/Settings';
+import LockResetIcon from '@mui/icons-material/LockReset';
+import Divider from '@mui/material/Divider';
 
 
 const style = {
@@ -52,7 +56,11 @@ function Header2({ user }) {
     const [openSearch, setOpenSearch] = React.useState(false);
     const handleSearchOpen = () => setOpenSearch(true);
     const handleSearchClose = () => setOpenSearch(false);
-    
+
+    const [drawer, setDrawer] = useState(false);
+    const handleDrawerOpen = () => setDrawer(true);
+    const handleDrawerClose = () => setDrawer(false);
+
 
     const handleLogout = () => {
         localStorage.removeItem('token'); // Clear the token from local storage
@@ -96,21 +104,59 @@ function Header2({ user }) {
     };
 
     return (
-        <div className='w-1/2 border-2 border-black rounded-full bg-white p-5 flex flex-row justify-between justify-items-center items-center'>
-            <div className='flex flex-row justify-center items-center'>
-                <a onClick={handleProfileOpen} title="Update profile image"><p className='p-1 text-2xl font-bold'>{user.profileImage ? (<img src={`${user.profileImage}`} className='rounded-full w-10 h-10' alt="Profile" />) : (<AccountCircleIcon fontSize='large' />)}</p></a>
+        <div className='w-full 2xl:w-1/2 border-2 border-black rounded-full bg-white p-5 flex flex-row justify-between justify-items-center items-center'>
+            <div className='hidden 2xl:flex 2xl:flex-row 2xl:justify-center 2xl:items-center'>
+                <a onClick={handleProfileOpen} title="Update profile image" cursor="pointer"><p className='p-1 text-2xl font-bold'>{user.profileImage ? (<img src={`${user.profileImage}`} className='rounded-full w-10 h-10' alt="Profile" />) : (<AccountCircleIcon fontSize='large' />)}</p></a>
             </div>
-            <div className='flex flex-row justify-center items-center'>
-                <a onClick={handleSearchOpen} title="Search user"><SearchIcon /> Search</a>
+            <div className='flex flex-row justify-center items-center 2xl:hidden'>
+                <p className='p-1 text-2xl font-bold'>{user.profileImage ? (<img src={`${user.profileImage}`} className='rounded-full w-12 h-12' alt="Profile" />) : (<AccountCircleIcon fontSize='large' />)}</p>
             </div>
-            <div className='flex flex-row justify-between items-center gap-x-5'>
-                <a href="" title="Edit Profile"><ManageAccountsIcon /></a>
-                <a href="" onClick={handleProfileRemove} title="Remove profile photo" sx={{cursor: 'pointer'}}><PersonRemoveAlt1Icon /></a>
+            <div className='flex flex-row justify-items-centerjustify-center items-center px-2'>
+                <a onClick={handleSearchOpen} title="Search user" className='text-lg 2xl:text-normal'><SearchIcon fontSize='large' /> Search</a>
+            </div>
+            <div className='hidden 2xl:flex 2xl:flex-row 2xl:justify-between 2xl:items-center 2xl:gap-x-5'>
+                {/* <a href="" title="Edit Profile"><ManageAccountsIcon /></a> */}
+                {/* <a href="" onClick={handleProfileRemove} title="Remove profile photo" sx={{ cursor: 'pointer' }}><PersonRemoveAlt1Icon /></a> */}
                 <a onClick={handleBgOpen} title="Update Background Image"><WallpaperIcon /></a>
-                <a href="" onClick={handleBgRemove} title="Remove Background Image"><CancelPresentationIcon /></a>
+                {/* <a href="" onClick={handleBgRemove} title="Remove Background Image"><CancelPresentationIcon /></a> */}
                 <a href="/login" onClick={handleLogout} title="Logout"><LogoutIcon /></a>
-                <a onClick={handlePassOpen} sx={{cursor: "pointer"}}>Password</a>
+                <a onClick={handlePassOpen} sx={{ cursor: "pointer" }}><LockResetIcon /> Update Password</a>
             </div>
+
+            {/* Mobile navbar */}
+            <React.Fragment>
+                <div className='2xl:hidden'>
+                    <Button onClick={handleDrawerOpen}><SettingsIcon fontSize='large' /></Button>
+                    <Drawer open={drawer} onClose={handleDrawerClose}>
+                        <div className='w-screen'>
+                            <div className="mb-2 flex items-center justify-between p-4">
+                                <h5 className='text-3xl font-semibold'>Settings</h5>
+                                <Button onClick={handleDrawerClose}>
+                                    <CloseIcon fontSize='large' />
+                                </Button>
+                            </div>
+                            {/* <div className="my-2 flex items-center justify-center gap-x-4 p-4">
+                                <a href="" className='text-md' onClick={handleProfileRemove} title="Remove profile photo" sx={{ cursor: 'pointer' }}><PersonRemoveAlt1Icon /> Remove profile photo</a>
+                            </div> */}
+                            <div className="my-2 flex items-center p-4 text-lg font-medium">
+                                <a onClick={handleBgOpen} title="Update Background Image"><AccountCircleIcon fontSize='large' /> Update Profile Photo</a>
+                            </div>
+                            <div className="my-2 flex items-center p-4 text-lg font-medium">
+                                <a onClick={handleBgOpen} title="Update Background Image"><WallpaperIcon fontSize='large' /> Update Background</a>
+                            </div>
+                            <div className="my-2 flex items-center p-4 text-lg font-medium">
+                                <a onClick={handlePassOpen} sx={{ cursor: "pointer" }}><LockResetIcon fontSize='large' /> Update Password</a>
+                            </div>
+                            <div className='p-4'>
+                                <Divider />
+                            </div>
+                            <div className="my-2 flex items-center p-4 text-lg font-medium">
+                                <a href="/login" onClick={handleLogout} title="Logout"><LogoutIcon fontSize='large' /> Logout</a>
+                            </div>
+                        </div>
+                    </Drawer>
+                </div>
+            </React.Fragment>
 
             {/* Bg update input */}
             <Modal
