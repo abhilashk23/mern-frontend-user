@@ -51,10 +51,10 @@ const LoginForm = ({ onLogin }) => {
                     <h2 className='text-4xl font-bold'>Welcome back!</h2>
                     <p className='py-2 text-lg'>Login to your account</p>
                     <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center w-full my-3 gap-y-3'>
-                        <div className='w-full flex flex-row items-center justify-items-center gap-x-4'>
+                        <div className='w-4/5 flex flex-row items-center justify-items-center gap-x-4'>
                             <input type="text" name="username" id="username" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Username" value={username} onChange={(e) => setUserName(e.target.value)} required />
                         </div>
-                        <div className='w-full flex flex-row items-center justify-items-center gap-x-4'>
+                        <div className='w-4/5 flex flex-row items-center justify-items-center gap-x-4'>
                             <input type="password" name="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                         </div>
 
