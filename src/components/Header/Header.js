@@ -4,11 +4,11 @@ import Button from '@mui/material/Button';
 
 function Header() {
     return (
-        <div className='border-2 border-black rounded-full bg-white p-5 flex flex-row justify-between'>
+        <div className='border-2 border-black rounded-full bg-white p-3 flex flex-row justify-between items-center'>
             <div>
                 <p className='p-1 text-2xl font-bold'>LOGO</p>
             </div>
-            <div className='flex flex-row justify-between gap-x-5'>
+            <div className='flex flex-row justify-between items-center gap-x-3'>
                 <a href="/login">
                     <Button variant='contained' disableElevation sx={{
                         textTransform: 'none',
@@ -24,8 +24,10 @@ function Header() {
                 </a>
 
                 <a href="/register">
-                    <Button variant='contained' disableElevation sx={{ borderRadius: 8, textTransform: 'none' }}>
-                        <span className='p-1 font-semibold'>Sign Up, it's free!</span>
+                    <Button variant='contained' disableElevation sx={{ borderRadius: 8, textTransform: 'none', backgroundColor:"#1E2330",'&:hover': {
+                            backgroundColor:"#1E2330"
+                        } }}>
+                        <span className='p-1 font-semibold'>Sign Up free</span>
                     </Button>
                 </a>
             </div>
