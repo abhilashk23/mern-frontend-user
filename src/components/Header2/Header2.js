@@ -120,7 +120,7 @@ function Header2({ user }) {
                 <a onClick={handleBgOpen} title="Update Background Image"><WallpaperIcon /></a>
                 {/* <a href="" onClick={handleBgRemove} title="Remove Background Image"><CancelPresentationIcon /></a> */}
                 <a href="/login" onClick={handleLogout} title="Logout"><LogoutIcon /></a>
-                <a onClick={handlePassOpen} sx={{ cursor: "pointer" }}><LockResetIcon /> Update Password</a>
+                <a onClick={handlePassOpen} sx={{ cursor: "disabled" }} className='text-gray-400'><LockResetIcon /> Update Password</a>
             </div>
 
             {/* Mobile navbar */}
@@ -128,7 +128,7 @@ function Header2({ user }) {
                 <div className='2xl:hidden'>
                     <Button onClick={handleDrawerOpen}><SettingsIcon fontSize='large' /></Button>
                     <Drawer open={drawer} onClose={handleDrawerClose}>
-                        <div className='w-screen'>
+                        <div className='w-screen p-5'>
                             <div className="mb-2 flex items-center justify-between p-4">
                                 <h5 className='text-3xl font-semibold'>Settings</h5>
                                 <Button onClick={handleDrawerClose}>
@@ -147,9 +147,7 @@ function Header2({ user }) {
                             <div className="my-2 flex items-center p-4 text-lg font-medium">
                                 <a onClick={handlePassOpen} sx={{ cursor: "pointer" }}><LockResetIcon fontSize='large' /> Update Password</a>
                             </div>
-                            <div className='p-4'>
-                                <Divider />
-                            </div>
+                            <Divider />
                             <div className="my-2 flex items-center p-4 text-lg font-medium">
                                 <a href="/login" onClick={handleLogout} title="Logout"><LogoutIcon fontSize='large' /> Logout</a>
                             </div>
