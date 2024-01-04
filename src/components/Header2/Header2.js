@@ -41,6 +41,24 @@ const style = {
     },
 };
 
+const serachstyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: "100%",
+    '@media (min-width:1366px)': {
+        width: '50%'
+    },
+    bgcolor: 'background.paper',
+    borderRadius: 5,
+    boxShadow: 24,
+    p: 4,
+    '&:focus': {
+        outline: 'none'
+    },
+};
+
 
 function Header2({ user }) {
     const history = useHistory();
@@ -218,7 +236,7 @@ function Header2({ user }) {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style}>
+                <Box sx={serachstyle}>
                     <div className='w-full flex flex-row justify-end mb-5'>
                         <CloseIcon onClick={handleSearchClose} sx={{ cursor: 'pointer' }} />
                     </div>

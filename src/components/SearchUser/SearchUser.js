@@ -62,12 +62,12 @@ function SearchUser() {
 
             {result !== null ? (
                 <div>
-                    <div className='mt-5 flex flex-row gap-x-5 items-center justify-items-center'>
+                    <div className='mt-5 flex flex-col 2xl:flex-row gap-x-5 items-center justify-items-center'>
                         {result.profileImage ? (<img src={`${result.profileImage}`} className='rounded-full w-28 h-28' alt="Profile" />) : (<AccountCircleIcon sx={{ fontSize: 50 }} />)}
                         <div>
                             <h1 className='pt-2 font-bold text-lg'>{result.name}</h1>
-                            <p className='font-semibold text-md' style={{ color: 'black' }}>@{result.username}</p>
-                            <div className='my-2 flex flex-row gap-x-3'>
+                            <p className='font-semibold text-md text-center 2xl:text-left' style={{ color: 'black' }}>@{result.username}</p>
+                            <div className='my-2 flex flex-row justify-center 2xl:justify-start gap-x-3'>
                                 {mainLinks.map((link, index) => {
                                     if (link.title.toLowerCase() === 'instagram') {
                                         return <a href={link.url} target='_blank' ><InstagramIcon fontSize='medium' /></a>
@@ -92,7 +92,7 @@ function SearchUser() {
                         </div>
 
                     </div>
-                    <div className='mt-3 flex flex-col w-full gap-y-3'>
+                    <div className='mt-3 flex flex-col justify-center w-full gap-y-3'>
                         {otherLinks.map((link, index) => (
                             <div className='bg-biege-500 border-2 border-black rounded-lg text-center p-2 w-full'>
                                 <a href={link.url} target="_blank">
