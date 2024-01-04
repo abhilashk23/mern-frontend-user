@@ -28,14 +28,17 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '50%',
+    width: 300,
+    '@media (min-width:1366px)': {
+        width: 400
+    },
     bgcolor: 'background.paper',
     borderRadius: 5,
     boxShadow: 24,
     p: 4,
     '&:focus': {
         outline: 'none'
-    }
+    },
 };
 
 
@@ -139,7 +142,7 @@ function Header2({ user }) {
                                 <a href="" className='text-md' onClick={handleProfileRemove} title="Remove profile photo" sx={{ cursor: 'pointer' }}><PersonRemoveAlt1Icon /> Remove profile photo</a>
                             </div> */}
                             <div className="my-2 flex items-center p-4 text-lg font-medium">
-                                <a onClick={handleBgOpen} title="Update Background Image"><AccountCircleIcon fontSize='large' /> Update Profile Photo</a>
+                                <a onClick={handleProfileOpen} title="Update Background Image"><AccountCircleIcon fontSize='large' /> Update Profile Photo</a>
                             </div>
                             <div className="my-2 flex items-center p-4 text-lg font-medium">
                                 <a onClick={handleBgOpen} title="Update Background Image"><WallpaperIcon fontSize='large' /> Update Background</a>
@@ -162,6 +165,7 @@ function Header2({ user }) {
                 onClose={handleBgClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
+
             >
                 <Box sx={style}>
                     <div className='w-full flex flex-row justify-end mb-5'>

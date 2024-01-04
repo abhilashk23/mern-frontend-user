@@ -1,6 +1,22 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import './BgUpdate.css'
+import { Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
+const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
+});
 
 
 function BgUpdate() {
@@ -39,24 +55,26 @@ function BgUpdate() {
     };
 
     return (
-        <div className='flex flex-col justify-center items-center'>
+        <div className=''>
             <form onSubmit={handleSubmit}>
-                <label className="block text-lg font-medium text-gray-700">
-                    Select a file:
-                    <input
-                        className="my-3 block" type="file" accept="image/*"
-                        onChange={handleFileChange}
-                    />
-                </label>
+                <div className='flex flex-row justify-start items-center my-4'>
+                    {/* <label className="text-xl font-medium text-gray-700">
+                        Select a file:
+                    </label> */}
+                    <Button component="label" variant="outlined" startIcon={<CloudUploadIcon fontSize='large' />} color='secondary'>
+                        <p className='text-lg cursor-pointer'>Upload File</p>
+                        <VisuallyHiddenInput type="file" accept="image/*" onChange={handleFileChange} />
+                    </Button>
+                </div>
                 {selectedFile && (
-                    <div className="my-4">
+                    <div className="my-4 w-full">
                         <p className="text-gray-600">
                             Selected file: {selectedFile.name}
                         </p>
                         <img
                             src={URL.createObjectURL(selectedFile)}
                             alt="Selected File Preview"
-                            className="mt-2 max-w-xs"
+                            className="mt-2 max-w-[200px] max-h-[200px]"
                         />
                     </div>
                 )}
