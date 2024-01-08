@@ -10,7 +10,7 @@ import UpdatePF from './components/UpdatePF/UpdatePF';
 import LinkUpdate from './components/LinkUpdate/LinkUpdate';
 import BgUpdate from './components/BgUpdate/BgUpdate';
 import DelLink from './components/DelLink/DelLink';
-import SearchUser from './components/SearchUser/SearchUser';
+// import SearchUser from './components/SearchUser/SearchUser';
 import PasswordUpdate from './components/PasswordUpdate/PasswordUpdate';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';

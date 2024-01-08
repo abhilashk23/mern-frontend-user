@@ -18,13 +18,13 @@ function HomePage() {
             </p>
           </div>
           <div className='w-full 2xl:w-7/12 2xl:m-3 p-3'>
-            <img src={dummy} />
+            <img src={dummy} alt='Sample image' />
           </div>
         </div>
       </div>
       <div className='bg-rose-400 flex flex-col 2xl:flex-row justify-between items-center'>
         <div className='w-full 2xl:w-5/12 2xl:m-6 p-3 '>
-          <img src={dummy} />
+          <img src={dummy} alt='Sample image' />
         </div>
         <div className='w-full 2xl:w-6/12 flex flex-col 2xl:m-6 p-3 '>
           <h1 className='text-5xl 2xl:text-7xl font-bold'>Create and customize your page, however you like</h1>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from '../components/Home/Home';
-import Header2 from '../components/Header2/Header2';
+// import Header2 from '../components/Header2/Header2';
 
 
 function User({ user }) {

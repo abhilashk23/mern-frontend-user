@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import axios from 'axios'
 import DeleteIcon from '@mui/icons-material/Delete';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+// import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function DelLink({ user }) {
 
@@ -31,7 +31,7 @@ function DelLink({ user }) {
                     <div>
                         {user.links.map((link, index) => {
                             return <div className='flex flex-row justify-between items-center bg-biege-500 rounded-lg text-center p-2 '>
-                                <a href={link.url} target="_blank">
+                                <a href={link.url} target="_blank" rel="noreferrer">
                                     {link.title}
                                 </a>
                                 <button onClick={() => handleSubmit(link.title)} className='text-red-500'><DeleteIcon /></button>

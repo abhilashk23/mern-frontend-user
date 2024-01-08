@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { getRandomColor } from '../utils';
 import '../Home/Home.css';
 import Header2 from '../Header2/Header2';
@@ -37,7 +37,7 @@ const style = {
 
 
 function Home({ user }) {
-    const history = useHistory();
+    // const history = useHistory();
     const [backgroundColor, setBackgroundColor] = useState(getRandomColor());
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);

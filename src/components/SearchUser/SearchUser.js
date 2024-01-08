@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import AddLinkIcon from '@mui/icons-material/AddLink';
+// import AddLinkIcon from '@mui/icons-material/AddLink';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import HomeIcon from '@mui/icons-material/Home';
+// import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import CloseIcon from '@mui/icons-material/Close';
 
 function SearchUser() {
 
@@ -38,6 +39,11 @@ function SearchUser() {
         }
     }
 
+    const clearSearch = () => {
+        setSearchUser('');
+        setResult(null);
+    }
+
     let mainLinks = null;
     let otherLinks = null;
 
@@ -57,6 +63,7 @@ function SearchUser() {
                 <div className='flex flex-row gap-x-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-primary-600 focus:border-primary-600 w-full p-2.5'>
                     <button type='submit'><SearchIcon /> </button>
                     <input type='text' className='w-full bg-gray-50 focus:outline-none' placeholder='Enter exact user to search' value={searchuser} onChange={(e) => setSearchUser(e.target.value)} required />
+                    <button type='reset' onClick={clearSearch}><CloseIcon /> </button>
                 </div>
             </form>
 

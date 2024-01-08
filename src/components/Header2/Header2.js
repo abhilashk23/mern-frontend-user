@@ -4,12 +4,12 @@ import Button from '@mui/material/Button';
 import LogoutIcon from '@mui/icons-material/Logout';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
-import PersonRemoveAlt1Icon from '@mui/icons-material/PersonRemoveAlt1';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+// import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
+// import PersonRemoveAlt1Icon from '@mui/icons-material/PersonRemoveAlt1';
+// import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import SearchIcon from '@mui/icons-material/Search';
-import axios from 'axios';
-import { Close, SearchRounded } from '@mui/icons-material';
+// import axios from 'axios';
+// import { Close, SearchRounded } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
 import Modal from '@mui/material/Modal';
 import { Box } from '@mui/material';
@@ -88,60 +88,63 @@ function Header2({ user }) {
         history.push('/login');
     };
 
-    const handleBgRemove = async (e) => {
-        e.preventDefault();
-        try {
-            const token = localStorage.getItem('token');
-            await axios.post('https://user-login-api.onrender.com/users/removeBg', { token })
-                .then((response) => {
-                    alert("BG removed successfully");
-                    window.location.reload();
-                })
-                .catch((e) => {
-                    alert(e);
-                });
-        }
-        catch (error) {
-            console.log(error);
-        }
-    };
+    // const handleBgRemove = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         const token = localStorage.getItem('token');
+    //         await axios.post('https://user-login-api.onrender.com/users/removeBg', { token })
+    //             .then((response) => {
+    //                 alert("BG removed successfully");
+    //                 window.location.reload();
+    //             })
+    //             .catch((e) => {
+    //                 alert(e);
+    //             });
+    //     }
+    //     catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
-    const handleProfileRemove = async (e) => {
-        e.preventDefault();
-        try {
-            const token = localStorage.getItem('token');
-            await axios.post('https://user-login-api.onrender.com/users/removeProfile', { token })
-                .then((response) => {
-                    alert("Profile photo removed successfully");
-                    window.location.reload();
-                })
-                .catch((e) => {
-                    alert(e);
-                });
-        }
-        catch (error) {
-            console.log(error);
-        }
-    };
+    // const handleProfileRemove = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         const token = localStorage.getItem('token');
+    //         await axios.post('https://user-login-api.onrender.com/users/removeProfile', { token })
+    //             .then((response) => {
+    //                 alert("Profile photo removed successfully");
+    //                 window.location.reload();
+    //             })
+    //             .catch((e) => {
+    //                 alert(e);
+    //             });
+    //     }
+    //     catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
     return (
-        <div className='w-full 2xl:w-1/2 border-2 border-black rounded-full bg-white p-5 flex flex-row justify-between justify-items-center items-center'>
+        <div className='w-full border-2 border-black rounded-full bg-white p-5 flex flex-row justify-between justify-items-center items-center'>
             <div className='hidden 2xl:flex 2xl:flex-row 2xl:justify-center 2xl:items-center'>
                 <a onClick={handleProfileOpen} title="Update profile image" cursor="pointer"><p className='p-1 text-2xl font-bold'>{user.profileImage ? (<img src={`${user.profileImage}`} className='rounded-full w-10 h-10' alt="Profile" />) : (<AccountCircleIcon fontSize='large' />)}</p></a>
             </div>
             <div className='flex flex-row justify-center items-center 2xl:hidden'>
                 <p className='p-1 text-2xl font-bold'>{user.profileImage ? (<img src={`${user.profileImage}`} className='rounded-full w-12 h-12' alt="Profile" />) : (<AccountCircleIcon fontSize='large' />)}</p>
             </div>
-            <div className='flex flex-row justify-items-centerjustify-center items-center px-2'>
-                <a onClick={handleSearchOpen} title="Search user" className='text-lg 2xl:text-normal'><SearchIcon fontSize='large' /> Search</a>
+            <div className='flex flex-row justify-items-center justify-center items-center px-2'>
+                <a onClick={handleSearchOpen} title="Search user" className='text-lg 2xl:text-normal cursor-pointer'><SearchIcon fontSize='large' /> Search</a>
             </div>
-            <div className='hidden 2xl:flex 2xl:flex-row 2xl:justify-between 2xl:items-center 2xl:gap-x-5'>
-                {/* <a href="" title="Edit Profile"><ManageAccountsIcon /></a> */}
+            <div className='hidden 2xl:flex 2xl:flex-row 2xl:justify-between 2xl:items-center 2xl:gap-x-3'>
+                {/* <a href="" title="Edit Profile"><ManageAccountsIcon /></a>
                 {/* <a href="" onClick={handleProfileRemove} title="Remove profile photo" sx={{ cursor: 'pointer' }}><PersonRemoveAlt1Icon /></a> */}
-                <a onClick={handleBgOpen} title="Update Background Image"><WallpaperIcon /></a>
+                {/* <a href="" onClick={handleBgOpen} title="Update Background Image" className='group/item flex'><WallpaperIcon /> <p className='hidden group-hover/item:block'>Update background</p></a> */}
                 {/* <a href="" onClick={handleBgRemove} title="Remove Background Image"><CancelPresentationIcon /></a> */}
-                <a href="/login" onClick={handleLogout} title="Logout"><LogoutIcon /></a>
-                <a onClick={handlePassOpen} sx={{ cursor: "disabled" }} className='text-gray-400'><LockResetIcon /> Update Password</a>
+                {/* <a href="/login" onClick={handleLogout} title="Logout" className='group/item flex'><LogoutIcon /> <p className='hidden group-hover/item:block'>Logout</p></a> */}
+                {/* <a href="" onClick={handlePassOpen} sx={{ cursor: "pointer" }} className='group/item group-hover/item:bg-fuchsia-600'><LockResetIcon /> <span className='hidden group-hover/item:block'>Update Password</span></a> */}
+                <button className='ciursor-pointer flex flex-row gap-x-2 hover:bg-fuchsia-300 hover:text-fuchsia-900 hover:rounded-full hover:text-white p-3'><WallpaperIcon /><span>Update background</span></button>
+                <button className='ciursor-pointer flex flex-row gap-x-2 hover:bg-fuchsia-300 hover:text-fuchsia-900 hover:rounded-full hover:text-white p-3'><LockResetIcon /><span>Update Password</span></button>
+                <button className='ciursor-pointer flex flex-row gap-x-2 hover:bg-fuchsia-300 hover:text-fuchsia-900 hover:rounded-full hover:text-white p-3'><LogoutIcon /><span>Logout</span></button>
             </div>
 
             {/* Mobile navbar */}
