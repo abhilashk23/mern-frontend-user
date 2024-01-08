@@ -142,9 +142,9 @@ function Header2({ user }) {
                 {/* <a href="" onClick={handleBgRemove} title="Remove Background Image"><CancelPresentationIcon /></a> */}
                 {/* <a href="/login" onClick={handleLogout} title="Logout" className='group/item flex'><LogoutIcon /> <p className='hidden group-hover/item:block'>Logout</p></a> */}
                 {/* <a href="" onClick={handlePassOpen} sx={{ cursor: "pointer" }} className='group/item group-hover/item:bg-fuchsia-600'><LockResetIcon /> <span className='hidden group-hover/item:block'>Update Password</span></a> */}
-                <button className='ciursor-pointer flex flex-row gap-x-2 hover:bg-fuchsia-300 hover:text-fuchsia-900 hover:rounded-full hover:text-white p-3'><WallpaperIcon /><span>Update background</span></button>
-                <button className='ciursor-pointer flex flex-row gap-x-2 hover:bg-fuchsia-300 hover:text-fuchsia-900 hover:rounded-full hover:text-white p-3'><LockResetIcon /><span>Update Password</span></button>
-                <button className='ciursor-pointer flex flex-row gap-x-2 hover:bg-fuchsia-300 hover:text-fuchsia-900 hover:rounded-full hover:text-white p-3'><LogoutIcon /><span>Logout</span></button>
+                <button onClick={handleBgOpen} className='cursor-pointer flex flex-row gap-x-2 hover:bg-fuchsia-300 hover:text-fuchsia-900 hover:rounded-full hover:text-white p-3'><WallpaperIcon /><span>Update background</span></button>
+                <button onClick={handlePassOpen} className='cursor-pointer flex flex-row gap-x-2 hover:bg-fuchsia-300 hover:text-fuchsia-900 hover:rounded-full hover:text-white p-3'><LockResetIcon /><span>Update Password</span></button>
+                <button onClick={handleLogout} className='cursor-pointer flex flex-row gap-x-2 hover:bg-fuchsia-300 hover:text-fuchsia-900 hover:rounded-full hover:text-white p-3'><LogoutIcon /><span>Logout</span></button>
             </div>
 
             {/* Mobile navbar */}
