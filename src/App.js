@@ -14,6 +14,7 @@ import DelLink from './components/DelLink/DelLink';
 import PasswordUpdate from './components/PasswordUpdate/PasswordUpdate';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import UserDetail from './components/UserDetail/UserDetail';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -51,7 +52,7 @@ function App() {
           {user ? (
             <Redirect to={`/home/${user.username}`} />
           ) : (
-            <LoginForm  />
+            <LoginForm />
           )}
         </Route>
         <Route path="/home/:username" exact>
@@ -94,6 +95,9 @@ function App() {
         </Route>
         <Route path="/passwordupdate" exact>
           <PasswordUpdate />
+        </Route>
+        <Route path="/user/:username" exact>
+          <UserDetail />
         </Route>
       </div>
     </Router>

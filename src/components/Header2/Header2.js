@@ -86,6 +86,7 @@ function Header2({ user }) {
     const handleLogout = () => {
         localStorage.removeItem('token'); // Clear the token from local storage
         history.push('/login');
+        window.location.reload();
     };
 
     // const handleBgRemove = async (e) => {
