@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import dummy from '../../images/dummy.png'
 import axios from 'axios';
+import logo from '../../images/logo.png';
 
 const LoginForm = ({ onLogin }) => {
     const history = useHistory();
@@ -42,7 +43,7 @@ const LoginForm = ({ onLogin }) => {
             </div>
             <div className='w-full 2xl:w-2/3 flex flex-col p-5'>
                 <div className='grid justify-items-start'>
-                    <a href="/"><p className='p-1 text-2xl font-bold'>LOGO</p></a>
+                    <a href="/"><img src={logo} className='-mb-5 h-28 w-28 xl:-mb-3 xl:h-24 xl:w-24' alt="Logo" /> </a>
                 </div>
                 <br />
                 <br />
@@ -52,10 +53,10 @@ const LoginForm = ({ onLogin }) => {
                     <p className='py-2 text-lg'>Login to your account</p>
                     <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center w-full my-3 gap-y-3'>
                         <div className='w-4/5 flex flex-row items-center justify-items-center gap-x-4'>
-                            <input type="text" name="username" id="username" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Username" value={username} onChange={(e) => setUserName(e.target.value)} required />
+                            <input type="text" name="username" id="username" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Username*" value={username} onChange={(e) => setUserName(e.target.value)} required />
                         </div>
                         <div className='w-4/5 flex flex-row items-center justify-items-center gap-x-4'>
-                            <input type="password" name="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                            <input type="password" name="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Password*" value={password} onChange={(e) => setPassword(e.target.value)} required />
                         </div>
 
                         {succcess &&  <div className="error-message text-black">{error}</div>}

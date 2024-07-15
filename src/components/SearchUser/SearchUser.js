@@ -1,16 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import YouTubeIcon from '@mui/icons-material/YouTube';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
-import Skeleton from '@mui/material/Skeleton';
-import Stack from '@mui/material/Stack';
 import CloseIcon from '@mui/icons-material/Close';
 import debounce from 'lodash.debounce';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -31,11 +23,21 @@ function SearchUser() {
         }
     }, [searchuser]);
 
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+        }
+    };
+
+
     const fetchSuggestions = useCallback(
         debounce(async (query) => {
             try {
                 const response = await axios.get(`https://user-login-api.onrender.com/users/suggestions?query=${query}`);
-                setSuggestions(response.data.slice(0, 5));
+                const results = response.data;
+                shuffleArray(results);
+                setSuggestions(results.slice(0, 5));
             } catch (error) {
                 setSuggestions([]);
             }
