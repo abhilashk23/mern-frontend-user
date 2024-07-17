@@ -34,7 +34,7 @@ function SearchUser() {
     const fetchSuggestions = useCallback(
         debounce(async (query) => {
             try {
-                const response = await axios.get(`https://user-login-api.onrender.com/users/suggestions?query=${query}`);
+                const response = await axios.get(`https://linkpalace.world/users/suggestions?query=${query}`);
                 const results = response.data;
                 shuffleArray(results);
                 setSuggestions(results.slice(0, 5));

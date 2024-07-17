@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      axios.post('https://user-login-api.onrender.com/users/verifyToken', { token })
+      axios.post('https://linkpalace.world/users/verifyToken', { token })
         .then((response) => response.data)
         .then(data => setTimeout(() => {
           setUser(data);

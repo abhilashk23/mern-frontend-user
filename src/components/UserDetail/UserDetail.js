@@ -17,7 +17,7 @@ function UserDetail() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.post('https://user-login-api.onrender.com/users/searchUser', { username: username });
+                const response = await axios.post('https://linkpalace.world/users/searchUser', { username: username });
                 setResult(response.data);
                 setError(null);
             } catch (e) {

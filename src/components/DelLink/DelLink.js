@@ -10,7 +10,7 @@ function DelLink({ user }) {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.post('https://user-login-api.onrender.com/users/delLink', { token, title: dellink })
+            await axios.post('https://linkpalace.world/users/delLink', { token, title: dellink })
                 .then((response) => {
                     alert(response.data.message);
                     window.location.reload();
