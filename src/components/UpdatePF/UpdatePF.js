@@ -31,7 +31,7 @@ function UpdatePF() {
         formData.append('token', token);
 
         try {
-            await axios.post('https://user-login-api.onrender.com/users/updateProfile', formData)
+            await axios.post('http://user-login-api-868610282.ap-south-1.elb.amazonaws.com/users/updateProfile', formData)
                 .then((response) => {
                     alert("Profile photo updated successfully");
                 })

@@ -23,7 +23,7 @@ const RegisterForm = () => {
     formData.append('profileImage', profileImage);
 
     try {
-      await axios.post('https://user-login-api.onrender.com/users/register', formData);
+      await axios.post('http://user-login-api-868610282.ap-south-1.elb.amazonaws.com/users/register', formData);
       alert('User registered successfully! Click Ok to go to Login');
       history.push('/login');
       window.location.reload();

@@ -7,10 +7,6 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import SearchIcon from '@mui/icons-material/Search';
-import Skeleton from '@mui/material/Skeleton';
-import Stack from '@mui/material/Stack';
-import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 
 function UserDetail() {
@@ -21,7 +17,7 @@ function UserDetail() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.post('https://user-login-api.onrender.com/users/searchUser', { username: username });
+                const response = await axios.post('http://user-login-api-868610282.ap-south-1.elb.amazonaws.com/users/searchUser', { username: username });
                 setResult(response.data);
                 setError(null);
             } catch (e) {

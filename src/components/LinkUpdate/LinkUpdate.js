@@ -11,7 +11,7 @@ function LinkUpdate() {
         e.preventDefault();
 
         const token = localStorage.getItem('token');
-        await axios.post('https://user-login-api.onrender.com/users/addLinks', { token, title, url })
+        await axios.post('http://user-login-api-868610282.ap-south-1.elb.amazonaws.com/users/addLinks', { token, title, url })
             .then((response) => {
                 alert(response.data.message);
                 history.push("/home/:username");
