@@ -60,8 +60,8 @@ function UserDetail() {
             backgroundPosition: 'center',
             minHeight: "100vh"
         }}>
-            <div className='flex flex-col justify-items-center items-center mb-5'>
-                <div className='w-11/12 2xl:w-full rounded-lg bg-white p-5 flex flex-col justify-items-center items-center'>
+            <div className='flex flex-col justify-items-center items-center my-5 w-full'>
+                <div className='w-11/12 2xl:w-2/5 rounded-lg bg-white p-5 flex flex-col justify-items-center items-center'>
                     {result.profileImage ? (<img src={`${result.profileImage}`} className='rounded-full w-32 h-32' alt="Profile" />) : (<AccountCircleIcon sx={{ fontSize: 50 }} />)}
                     <h1 className='pt-2 font-bold text-lg'>{result.name}</h1>
                     {/* fix later */}
