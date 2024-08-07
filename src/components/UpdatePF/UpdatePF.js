@@ -31,7 +31,8 @@ function UpdatePF() {
         formData.append('token', token);
 
         try {
-            await axios.post('https://linkpalace.world/users/updateProfile', formData)
+            // https://linkpalace.world
+            await axios.post('https://user-login-api.onrender.com/users/updateProfile', formData)
                 .then((response) => {
                     alert("Profile photo updated successfully");
                 })

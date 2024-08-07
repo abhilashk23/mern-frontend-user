@@ -16,7 +16,8 @@ const LoginForm = ({ onLogin }) => {
 
         try {
             // console.log({ username, password });
-            await axios.post('https://linkpalace.world/users/login', { username, password })
+            // https://linkpalace.world
+            await axios.post('https://user-login-api.onrender.com/users/login', { username, password })
                 .then((response) => response.data)
                 .then((data) => setTimeout(() => {
                     setSuccess('Loading...')

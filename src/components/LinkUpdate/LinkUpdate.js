@@ -9,9 +9,9 @@ function LinkUpdate() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        // https://linkpalace.world
         const token = localStorage.getItem('token');
-        await axios.post('https://linkpalace.world/users/addLinks', { token, title, url })
+        await axios.post('https://user-login-api.onrender.com/users/addLinks', { token, title, url })
             .then((response) => {
                 alert(response.data.message);
                 history.push("/home/:username");
